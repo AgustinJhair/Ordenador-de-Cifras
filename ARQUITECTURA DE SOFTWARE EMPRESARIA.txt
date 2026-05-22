@@ -1,151 +1,204 @@
 ARQUITECTURA DE SOFTWARE EMPRESARIAL
 SISTEMA: ORDENADOR DE CIFRAS
-Plataforma Web Moderna basada en Python FastAPI + React + PostgreSQL
-1. INTRODUCCIÓN
+Plataforma Web Empresarial basada en Python FastAPI + React + PostgreSQL
+1. VISIÓN GENERAL DEL SISTEMA
+1.1 DESCRIPCIÓN GENERAL
 
-La presente arquitectura de software ha sido diseñada bajo estándares empresariales modernos, considerando principios fundamentales de:
+El sistema “ORDENADOR DE CIFRAS” será una plataforma web empresarial orientada al procesamiento, clasificación, organización, análisis y visualización de datos numéricos.
+
+La solución permitirá administrar grandes volúmenes de cifras y automatizar operaciones matemáticas y estadísticas mediante una arquitectura moderna, escalable y desacoplada.
+
+El sistema ha sido diseñado bajo principios de:
 
 escalabilidad
-mantenibilidad
-modularidad
-seguridad
-rendimiento
-disponibilidad
-desacoplamiento
-extensibilidad
 resiliencia
-alta concurrencia
+modularidad
+mantenibilidad
+observabilidad
+alta disponibilidad
+seguridad empresarial
+extensibilidad
+separación de responsabilidades
+procesamiento concurrente
+desacoplamiento arquitectónico
+2. OBJETIVOS DEL SISTEMA
+2.1 OBJETIVOS FUNCIONALES
 
-El sistema denominado:
+El sistema permitirá:
 
-“ORDENADOR DE CIFRAS”
+registrar cifras numéricas
+clasificar datos automáticamente
+ordenar números mediante algoritmos especializados
+generar estadísticas avanzadas
+visualizar dashboards dinámicos
+exportar reportes PDF/Excel/CSV
+administrar usuarios y roles
+auditar operaciones críticas
+procesar datos concurrentemente
+optimizar cálculos matemáticos
+realizar análisis históricos
+soportar múltiples usuarios simultáneos
+2.2 OBJETIVOS TÉCNICOS
 
-será una plataforma web inteligente orientada al procesamiento, organización, clasificación y análisis de cifras y datos numéricos.
+La arquitectura deberá:
 
-La solución permitirá:
+soportar crecimiento horizontal
+reducir acoplamiento entre módulos
+facilitar despliegues continuos
+soportar alta concurrencia
+garantizar integridad de datos
+facilitar testing automatizado
+minimizar tiempos de respuesta
+facilitar migración futura a microservicios
+mantener alta cohesión interna
+garantizar seguridad empresarial
+3. STACK TECNOLÓGICO
+3.1 BACKEND
+Tecnología	Propósito
+Python 3.12+	Lenguaje principal backend
+FastAPI	Framework API REST de alto rendimiento
+SQLAlchemy	ORM empresarial
+Alembic	Migraciones de base de datos
+Pydantic	Validación y tipado fuerte
+AsyncIO	Procesamiento asíncrono
+Uvicorn	Servidor ASGI
+Gunicorn	Gestión de workers
+Redis	Caché y procesamiento temporal
+Celery	Procesamiento background
+3.2 FRONTEND
+Tecnología	Propósito
+React	Framework frontend
+Vite	Bundler moderno
+TailwindCSS	Sistema de estilos
+Axios	Cliente HTTP
+Zustand	Gestión de estado global
+React Router DOM	Routing SPA
+React Hook Form	Manejo de formularios
+Zod	Validación frontend
+Recharts	Visualización gráfica
+TanStack Query	Cache de peticiones
+3.3 BASE DE DATOS
+Tecnología	Propósito
+PostgreSQL	Motor relacional principal
+Redis	Cache distribuido
+3.4 DEVOPS Y DESPLIEGUE
+Tecnología	Propósito
+Docker	Contenedores
+Docker Compose	Orquestación local
+Nginx	Reverse proxy
+GitHub Actions	CI/CD
+Linux Ubuntu	Servidor producción
+4. ESTILO ARQUITECTÓNICO
+4.1 ARQUITECTURA SELECCIONADA
 
-registrar cifras
-ordenar números
-clasificar datos
-automatizar cálculos
-generar estadísticas
-visualizar dashboards
-exportar reportes
-gestionar usuarios
-auditar operaciones
-optimizar procesamiento numérico
-2. STACK TECNOLÓGICO
-BACKEND
-Python 3.12+
-FastAPI
-SQLAlchemy
-Alembic
-Pydantic
-AsyncIO
-Uvicorn
-FRONTEND
-React
-Vite
-TailwindCSS
-Axios
-Zustand
-React Router DOM
-React Hook Form
-Zod
-BASE DE DATOS
-PostgreSQL
-ARQUITECTURA
+La solución utilizará:
+
 Clean Architecture
 Arquitectura Hexagonal
 Modular Monolith
 API RESTful
-3. OBJETIVOS DE LA ARQUITECTURA
-3.1 OBJETIVOS TÉCNICOS
-garantizar escalabilidad
-reducir acoplamiento
-optimizar rendimiento
-facilitar mantenimiento
-soportar concurrencia
-permitir despliegue continuo
-facilitar pruebas automatizadas
-mejorar seguridad
-permitir crecimiento futuro
-3.2 OBJETIVOS FUNCIONALES
-organizar cifras automáticamente
-procesar operaciones matemáticas
-clasificar datos numéricos
-generar estadísticas avanzadas
-visualizar dashboards
-exportar reportes
-administrar usuarios
-registrar auditoría
-soportar múltiples usuarios
-4. ESTILO ARQUITECTÓNICO
-4.1 MODULAR MONOLITH
+Domain Driven Design parcial
+4.2 JUSTIFICACIÓN
 
-Inicialmente el sistema será desarrollado como un monolito modular.
+Se seleccionó una arquitectura Modular Monolith debido a:
 
-Ventajas
-menor complejidad inicial
-fácil mantenimiento
-despliegue simplificado
+menor complejidad operacional inicial
+despliegues simplificados
+mantenimiento centralizado
 consistencia transaccional
-crecimiento progresivo
-migración futura a microservicios
-
-Cada módulo será independiente internamente.
-
-5. ARQUITECTURA GENERAL DEL SISTEMA
+facilidad debugging
+menor costo infraestructura
+migración progresiva futura a microservicios
+5. DISEÑO ARQUITECTÓNICO GENERAL
 5.1 ARQUITECTURA EN CAPAS
 
 El sistema estará dividido en:
 
 Presentation Layer
 
-Responsable de la interfaz gráfica y experiencia usuario.
+Responsable de:
 
+interfaz usuario
+renderizado UI
+navegación
+validaciones visuales
+interacción cliente
+API Layer
+
+Responsable de:
+
+endpoints REST
+serialización JSON
+autenticación
+validación requests
+respuestas HTTP
+versionamiento APIs
 Application Layer
 
-Responsable de los casos de uso y lógica aplicación.
+Responsable de:
 
+casos de uso
+coordinación lógica negocio
+orquestación servicios
+transacciones
+flujos aplicación
 Domain Layer
 
-Responsable de reglas de negocio.
+Responsable de:
 
+entidades negocio
+reglas dominio
+contratos
+interfaces
+lógica matemática central
 Infrastructure Layer
 
-Responsable de servicios externos e infraestructura.
+Responsable de:
 
+PostgreSQL
+Redis
+JWT
+logging
+exportaciones
+servicios externos
+cache
 Persistence Layer
 
-Responsable del acceso a datos.
+Responsable de:
 
-6. FRONTEND ARCHITECTURE
-6.1 TECNOLOGÍAS FRONTEND
-React
-Vite
-TailwindCSS
-Axios
-Zustand
-React Router DOM
-React Hook Form
-Zod
-Recharts
-6.2 RESPONSABILIDADES DEL FRONTEND
+acceso datos
+ORM
+queries
+repositorios
+migraciones
+6. DOMAIN DRIVEN DESIGN
+6.1 BOUNDED CONTEXTS
+
+El dominio estará dividido en:
+
+Contexto	Responsabilidad
+Authentication Context	autenticación y sesiones
+Number Management Context	gestión de cifras
+Statistics Context	cálculos estadísticos
+Reporting Context	exportaciones y reportes
+Dashboard Context	visualización y métricas
+Audit Context	auditoría y trazabilidad
+Configuration Context	configuraciones sistema
+7. ARQUITECTURA FRONTEND
+7.1 RESPONSABILIDADES FRONTEND
 
 El frontend será responsable de:
 
 renderizado UI
-navegación
-validaciones visuales
-dashboards interactivos
-visualización estadísticas
-manejo estado
 consumo APIs
-control sesión
-manejo errores
-responsive design
-6.3 ESTRUCTURA FRONTEND
+validaciones cliente
+manejo estado
+dashboards interactivos
+experiencia usuario
+manejo sesión
+protección rutas
+rendering responsivo
+7.2 ESTRUCTURA FRONTEND
 frontend/
 │
 ├── src/
@@ -167,7 +220,7 @@ frontend/
 │   ├── validations/
 │   ├── App.jsx
 │   └── main.jsx
-6.4 ESTRUCTURA POR MÓDULOS
+7.3 ORGANIZACIÓN MODULAR
 modules/
 │
 ├── auth/
@@ -181,67 +234,73 @@ modules/
 Cada módulo contendrá:
 
 components
-pages
 hooks
+pages
 services
 schemas
 store
 routes
-6.5 DISEÑO RESPONSIVE
+validations
+7.4 ATOMIC DESIGN
 
-El sistema utilizará:
-
-Mobile First
-Flexbox
-CSS Grid
-breakpoints escalables
-componentes adaptativos
-6.6 PATRÓN COMPONENTES
-
-Se implementará Atomic Design:
+El frontend utilizará:
 
 Atoms
 Molecules
 Organisms
 Templates
 Pages
-6.7 GESTIÓN DE ESTADO
-Estados Globales
+7.5 GESTIÓN DE ESTADO
+Estado Global
 usuario autenticado
-permisos
 sesión
+permisos
 configuración
 tema
-Estados Locales
+idioma
+Estado Local
 formularios
 tablas
 filtros
-modales
 dashboards
-6.8 SEGURIDAD FRONTEND
-protección rutas
-manejo seguro JWT
-expiración sesión
+modales
+paginación
+7.6 OPTIMIZACIÓN FRONTEND
+
+Se implementará:
+
+lazy loading
+code splitting
+memoization
+suspense boundaries
+cache navegador
+virtualización tablas
+minimización bundles
+7.7 SEGURIDAD FRONTEND
+
+Se implementará:
+
+protección rutas privadas
+expiración automática sesión
 sanitización inputs
 prevención XSS
-prevención CSRF
-7. BACKEND ARCHITECTURE
-7.1 TECNOLOGÍAS BACKEND
-Python 3.12+
-FastAPI
-SQLAlchemy
-Alembic
-Pydantic
-AsyncIO
-Uvicorn
-7.2 PRINCIPIOS BACKEND
+manejo seguro JWT
+control permisos UI
+protección CSRF
+8. ARQUITECTURA BACKEND
+8.1 PRINCIPIOS BACKEND
+
+La solución backend seguirá:
+
 SOLID
 DRY
 KISS
-Clean Architecture
-Dependency Injection
 Separation of Concerns
-7.3 ESTRUCTURA BACKEND
+Dependency Injection
+Clean Architecture
+alta cohesión
+bajo acoplamiento
+8.2 ESTRUCTURA BACKEND
 backend/
 │
 ├── app/
@@ -258,57 +317,108 @@ backend/
 │   ├── middleware/
 │   ├── security/
 │   ├── utils/
+│   ├── workers/
+│   ├── tasks/
 │   ├── tests/
 │   └── main.py
-7.4 CAPA DOMAIN
+8.3 DOMAIN LAYER
 
 Responsable de:
 
-entidades
-reglas negocio
+entidades negocio
+value objects
 contratos
 interfaces
+reglas matemáticas
 validaciones centrales
 
-NO dependerá de frameworks externos.
+La capa dominio NO dependerá de frameworks externos.
 
-7.5 CAPA APPLICATION
+8.4 APPLICATION LAYER
 
 Responsable de:
 
-casos de uso
-lógica negocio
-coordinación servicios
-procesamiento matemático
+casos uso
+coordinación procesos
+transacciones
+workflows
+reglas aplicación
 Casos de Uso
 organizar cifras
 ordenar números
 clasificar datos
 calcular estadísticas
-exportar reportes
 generar dashboards
-7.6 CAPA INFRASTRUCTURE
+exportar reportes
+auditar operaciones
+8.5 INFRASTRUCTURE LAYER
 
 Responsable de:
 
 PostgreSQL
-JWT
 Redis
-logs
+JWT
+logging
+almacenamiento archivos
 exportaciones
-archivos
-servicios externos
-7.7 CAPA API
+cache distribuido
+workers background
+8.6 API LAYER
 
 Responsable de:
 
-endpoints
-validación request
-respuestas HTTP
-serialización
-versionamiento API
-8. API REST
-8.1 ESTRUCTURA API
+endpoints REST
+validación requests
+serialización respuestas
+manejo errores
+versionamiento APIs
+documentación Swagger/OpenAPI
+9. MOTOR DE PROCESAMIENTO NUMÉRICO
+9.1 RESPONSABILIDADES
+
+El núcleo matemático del sistema será responsable de:
+
+ordenamiento de cifras
+clasificación numérica
+cálculos estadísticos
+agrupación datos
+filtrado avanzado
+análisis matemático
+procesamiento masivo
+cálculos concurrentes
+9.2 ALGORITMOS DE ORDENAMIENTO
+
+El sistema soportará:
+
+QuickSort
+MergeSort
+HeapSort
+TimSort
+ordenamiento paralelo
+9.3 PROCESAMIENTO ESTADÍSTICO
+
+El sistema calculará:
+
+promedio
+mediana
+moda
+desviación estándar
+varianza
+máximos
+mínimos
+percentiles
+distribuciones
+9.4 PROCESAMIENTO CONCURRENTE
+
+El backend utilizará:
+
+AsyncIO
+workers concurrentes
+background tasks
+colas procesamiento
+tareas distribuidas
+10. API REST EMPRESARIAL
+10.1 ESTRUCTURA API
 /api/v1/
 │
 ├── auth/
@@ -316,85 +426,99 @@ versionamiento API
 ├── statistics/
 ├── dashboard/
 ├── reports/
+├── audit/
 └── settings/
-8.2 ENDPOINTS PRINCIPALES
+10.2 ENDPOINTS PRINCIPALES
 AUTH
 POST /api/v1/auth/login
 POST /api/v1/auth/register
 POST /api/v1/auth/logout
 POST /api/v1/auth/refresh
+GET  /api/v1/auth/me
 NUMBERS
-GET /api/v1/numbers
-POST /api/v1/numbers
-PUT /api/v1/numbers/{id}
+GET    /api/v1/numbers
+GET    /api/v1/numbers/{id}
+POST   /api/v1/numbers
+PUT    /api/v1/numbers/{id}
 DELETE /api/v1/numbers/{id}
-POST /api/v1/numbers/import
+POST   /api/v1/numbers/import
 STATISTICS
-GET /api/v1/statistics
+GET  /api/v1/statistics
 POST /api/v1/statistics/process
+GET  /api/v1/statistics/history
 REPORTS
-GET /api/v1/reports
+GET  /api/v1/reports
 POST /api/v1/reports/export/pdf
 POST /api/v1/reports/export/excel
 POST /api/v1/reports/export/csv
-9. VALIDACIONES
+AUDIT
+GET /api/v1/audit/logs
+GET /api/v1/audit/users
+11. SEGURIDAD EMPRESARIAL
+11.1 AUTENTICACIÓN
 
-Se utilizará:
+Se implementará:
 
-Pydantic
-DTOs
-Validators
-tipado fuerte
-sanitización inputs
-10. MIDDLEWARES
+JWT Access Token
+Refresh Token
+expiración automática
+logout seguro
+revocación tokens
+rotación refresh tokens
+11.2 AUTORIZACIÓN
 
-Middlewares principales:
+Modelo RBAC:
 
-logging
-CORS
-seguridad
-auditoría
+roles
+permisos
+guards
+policies
+11.3 SEGURIDAD GENERAL
+
+Se implementará:
+
+HTTPS obligatorio
+hashing Bcrypt
+protección SQL Injection
+prevención XSS
 rate limiting
-manejo errores
-tiempo respuesta
-11. MANEJO DE ERRORES
+validación estricta
+sanitización inputs
+CORS seguro
+headers seguridad
+11.4 AUDITORÍA
 
-Formato estándar:
+El sistema registrará:
 
-{
-  "success": false,
-  "message": "Error message",
-  "code": "NUMBER_NOT_FOUND",
-  "details": {}
-}
-12. ASINCRONÍA
+login
+logout
+modificaciones
+exportaciones
+errores críticos
+cambios configuración
+accesos APIs
+12. BASE DE DATOS
+12.1 MOTOR PRINCIPAL
 
-FastAPI trabajará usando:
+PostgreSQL fue seleccionado por:
 
-async/await
-operaciones concurrentes
-procesamiento no bloqueante
-conexiones async
-13. BASE DE DATOS
-13.1 MOTOR
-PostgreSQL
-Razones
-alto rendimiento
-ACID
-integridad relacional
-JSON support
+soporte ACID
+alta confiabilidad
+rendimiento empresarial
+soporte JSON
 replicación
-seguridad
-13.2 ARQUITECTURA DATOS
+seguridad avanzada
+integridad relacional
+12.2 MODELO DE DATOS
 
-La base datos estará dividida en:
+La base estará organizada en:
 
 tablas transaccionales
 tablas estadísticas
 tablas auditoría
-tablas configuración
 tablas logs
-13.3 TABLAS PRINCIPALES
+tablas configuración
+12.3 TABLAS PRINCIPALES
 users
 id
 username
@@ -428,87 +552,115 @@ action
 module
 ip_address
 created_at
-13.4 RELACIONES
+12.4 RELACIONES
+
+Se implementarán:
+
 One To Many
 Many To Many
 Foreign Keys
 Constraints
-Cascading rules
-13.5 ÍNDICES
-
-Se crearán índices en:
-
-emails
-fechas
-búsquedas frecuentes
-foreign keys
-13.6 MIGRACIONES
-
-Se utilizará:
-
-Alembic
-Características
-versionado DB
-rollback
-sincronización ambientes
-13.7 OPTIMIZACIÓN SQL
-índices optimizados
-consultas paginadas
-pooling conexiones
-lazy loading
-eager loading
-14. SEGURIDAD
-14.1 AUTENTICACIÓN
+reglas cascada
+12.5 OPTIMIZACIÓN SQL
 
 Se implementará:
 
-JWT Access Token
-Refresh Token
-expiración tokens
-logout seguro
-14.2 AUTORIZACIÓN
+índices optimizados
+paginación consultas
+connection pooling
+eager loading
+lazy loading
+consultas parametrizadas
+12.6 MIGRACIONES
 
-Modelo RBAC:
+Alembic será utilizado para:
 
-roles
-permisos
-guards
-14.3 SEGURIDAD GENERAL
-HTTPS obligatorio
-hashing passwords
-Bcrypt
-protección SQL Injection
-protección XSS
+versionado base datos
+rollback seguro
+sincronización ambientes
+control cambios esquema
+13. REDIS Y CACHÉ
+13.1 USOS REDIS
+
+Redis será utilizado para:
+
+cache estadísticas
+cache dashboards
+sesiones temporales
 rate limiting
-validación inputs
-14.4 AUDITORÍA
+colas procesamiento
+invalidación cache
+13.2 ESTRATEGIAS CACHE
 
-Se registrará:
+Se implementará:
 
-login
-logout
-creación registros
-edición datos
-eliminación
+cache aside
+TTL configurable
+invalidación selectiva
+cache distribuido
+14. OBSERVABILIDAD Y MONITOREO
+14.1 LOGGING
+
+Niveles:
+
+INFO
+WARNING
+ERROR
+CRITICAL
+14.2 EVENTOS MONITOREADOS
+errores aplicación
+excepciones
+tiempos respuesta
+accesos usuarios
+consumo recursos
 exportaciones
+métricas APIs
+14.3 MÉTRICAS
+
+El sistema deberá monitorear:
+
+CPU
+RAM
+tiempos respuesta
+throughput
+concurrencia
+errores HTTP
+queries lentas
+14.4 HERRAMIENTAS FUTURAS
+
+Posibles integraciones:
+
+Prometheus
+Grafana
+OpenTelemetry
+Loki
 15. RENDIMIENTO
 15.1 OPTIMIZACIÓN BACKEND
-Async processing
-cache consultas
-pooling conexiones
+
+Se implementará:
+
+AsyncIO
+workers concurrentes
+connection pooling
 background tasks
+cache consultas
+procesamiento paralelo
 15.2 OPTIMIZACIÓN FRONTEND
+
+Se implementará:
+
 lazy loading
+tree shaking
 code splitting
 memoization
 caché navegador
-15.3 CACHÉ
-
-Posible integración futura:
-
-Redis
-cache estadísticas
-cache dashboards
+15.3 OBJETIVOS RENDIMIENTO
+Métrica	Objetivo
+Tiempo respuesta API	< 300ms
+Disponibilidad	99.9%
+Usuarios concurrentes	5,000
+Tiempo login	< 2s
+Exportación reportes	< 10s
 16. ESCALABILIDAD
 16.1 ESCALABILIDAD HORIZONTAL
 
@@ -516,70 +668,133 @@ El sistema podrá escalar mediante:
 
 múltiples instancias backend
 balanceadores carga
+replicación PostgreSQL
 contenedores Docker
+workers independientes
 16.2 ESCALABILIDAD VERTICAL
-incremento RAM
+
+Se permitirá:
+
 incremento CPU
+incremento RAM
 tuning PostgreSQL
-17. LOGGING Y MONITOREO
-17.1 LOGGING
-Tipos
-INFO
-WARNING
-ERROR
-CRITICAL
-17.2 EVENTOS REGISTRADOS
-errores sistema
-accesos
-excepciones
-tiempos respuesta
-exportaciones
-18. TESTING
-18.1 TIPOS PRUEBAS
-unitarias
-integración
-end to end
-performance
-seguridad
-18.2 COBERTURA
-Objetivo mínimo
-Backend 80%
-Frontend 70%
-19. DEVOPS
-19.1 CONTROL VERSIONES
-Git Flow
+expansión almacenamiento
+16.3 EVOLUCIÓN FUTURA
+
+La arquitectura permitirá migrar módulos hacia microservicios:
+
+statistics service
+reporting service
+audit service
+17. DEVOPS Y CI/CD
+17.1 CONTROL VERSIONES
+
+Se utilizará Git Flow:
+
 main
 develop
 feature/*
 hotfix/*
 release/*
-19.2 ENTORNOS
+17.2 PIPELINE CI/CD
+
+Pipeline automatizado:
+
+linting
+testing
+análisis seguridad
+build
+dockerización
+despliegue staging
+aprobación manual
+despliegue producción
+17.3 ENTORNOS
 Development
 Testing
 Staging
 Production
-19.3 VARIABLES ENTORNO
+17.4 VARIABLES ENTORNO
 DATABASE_URL=
 SECRET_KEY=
 JWT_SECRET=
 REDIS_URL=
-20. DESPLIEGUE
-20.1 SERVIDOR
+ENVIRONMENT=
+18. CONTENERIZACIÓN
+18.1 DOCKER
+
+La solución será contenedorizada mediante:
+
+contenedor backend
+contenedor frontend
+contenedor PostgreSQL
+contenedor Redis
+contenedor Nginx
+18.2 DOCKER COMPOSE
+
+Permitirá:
+
+orquestación local
+integración servicios
+ambientes desarrollo
+simplificación despliegue
+19. TESTING
+19.1 TIPOS DE PRUEBAS
 Backend
-Linux Ubuntu
-Uvicorn
-Gunicorn
-Nginx
+unitarias
+integración
+contract testing
+performance
+seguridad
 Frontend
-Build Vite
-archivos estáticos
-20.2 FLUJO DESPLIEGUE
-Pull código
-Instalar dependencias
-Ejecutar migraciones
-Build frontend
-Reiniciar servicios
-21. ESTRUCTURA COMPLETA DEL PROYECTO
+unitarias
+integración
+e2e
+accesibilidad
+19.2 COBERTURA OBJETIVO
+Componente	Cobertura
+Backend	80%
+Frontend	70%
+20. MIDDLEWARES
+20.1 MIDDLEWARES PRINCIPALES
+
+Se implementarán:
+
+logging middleware
+CORS middleware
+security middleware
+auditoría middleware
+rate limiting middleware
+error handling middleware
+request timing middleware
+21. MANEJO CENTRALIZADO DE ERRORES
+21.1 FORMATO ESTÁNDAR
+{
+  "success": false,
+  "message": "Error message",
+  "code": "NUMBER_NOT_FOUND",
+  "details": {}
+}
+21.2 BENEFICIOS
+consistencia respuestas
+debugging simplificado
+mejor trazabilidad
+integración frontend estable
+22. NON FUNCTIONAL REQUIREMENTS
+22.1 DISPONIBILIDAD
+uptime mínimo 99.9%
+22.2 SEGURIDAD
+cifrado HTTPS obligatorio
+políticas password seguras
+auditoría completa
+22.3 ESCALABILIDAD
+soporte crecimiento horizontal
+22.4 RENDIMIENTO
+APIs rápidas y concurrentes
+22.5 MANTENIBILIDAD
+código modular
+documentación completa
+testing automatizado
+23. ESTRUCTURA COMPLETA DEL PROYECTO
 project-root/
 │
 ├── backend/
@@ -598,70 +813,94 @@ project-root/
 ├── docs/
 ├── scripts/
 └── README.md
-22. PATRONES DE DISEÑO
+24. PATRONES DE DISEÑO
 
 Patrones implementados:
 
 Repository Pattern
 Service Pattern
 Factory Pattern
-Singleton
-Strategy
-Observer
+Strategy Pattern
+Observer Pattern
 DTO Pattern
+Singleton
 Dependency Injection
-23. BUENAS PRÁCTICAS
-código tipado
-principios SOLID
-reutilización
-documentación
-validación estricta
-seguridad por defecto
-manejo centralizado errores
-24. DOCUMENTACIÓN TÉCNICA
-
-Se deberá documentar:
-
-APIs
-arquitectura
-diagramas
-módulos
-despliegue
-modelos
-configuración
-25. FLUJO GENERAL DEL SISTEMA
+25. FLUJO OPERACIONAL GENERAL
 Usuario accede frontend.
 Frontend valida sesión.
-Frontend consume API.
-API procesa request.
-Services ejecutan lógica.
-Repository accede DB.
-PostgreSQL responde.
-API retorna JSON.
+Frontend consume API REST.
+API valida request.
+Application Layer ejecuta caso uso.
+Domain Layer aplica reglas negocio.
+Repository accede PostgreSQL.
+Redis optimiza consultas.
+API responde JSON.
 Frontend renderiza resultado.
-26. CONCLUSIÓN
+Auditoría registra operación.
+26. ROADMAP EVOLUTIVO
+FASE 1
+autenticación
+CRUD cifras
+estadísticas básicas
+dashboards iniciales
+FASE 2
+procesamiento concurrente
+exportaciones avanzadas
+auditoría completa
+dashboards analíticos
+FASE 3
+Redis distribuido
+workers background
+métricas avanzadas
+observabilidad completa
+FASE 4
+migración parcial microservicios
+Kubernetes
+escalabilidad cloud
+procesamiento distribuido
+27. CONCLUSIÓN
 
-La arquitectura propuesta para el sistema:
-
-“ORDENADOR DE CIFRAS”
-
-ha sido diseñada bajo estándares empresariales modernos orientados a aplicaciones de alto rendimiento.
+La arquitectura empresarial propuesta para el sistema “ORDENADOR DE CIFRAS” ha sido diseñada siguiendo estándares modernos de ingeniería de software orientados a plataformas escalables y de alto rendimiento.
 
 La combinación de:
 
-FastAPI
+Python FastAPI
 React
 Vite
 TailwindCSS
 PostgreSQL
+Redis
+Docker
 
-permitirá construir una plataforma:
+permitirá construir una solución:
 
-escalable
+robusta
 segura
 modular
 mantenible
-rápida
-preparada para crecimiento futuro
+escalable
+preparada para crecimiento empresarial
+preparada para alta concurrencia
+preparada para evolución futura
 
-La estructura modular permitirá evolucionar el sistema sin comprometer estabilidad, rendimiento ni mantenibilidad.
+La arquitectura Modular Monolith permitirá iniciar el proyecto con baja complejidad operacional mientras mantiene la capacidad de evolucionar progresivamente hacia arquitecturas distribuidas empresariales.
+
+Ya quedó rehacida con enfoque mucho más profesional y empresarial, incluyendo:
+
+arquitectura por capas real
+Domain Driven Design
+bounded contexts
+observabilidad
+Redis
+Docker
+CI/CD
+NFRs
+escalabilidad
+procesamiento concurrente
+motor matemático
+seguridad avanzada
+optimización
+DevOps
+roadmap evolutivo
+objetivos de rendimiento
+arquitectura enterprise moderna
